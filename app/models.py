@@ -4,6 +4,7 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask.ext.login import UserMixin
 from . import db, login_manager
+from flask import request
 
 article_types = {u'开发语言': ['Python', 'Java', 'JavaScript'],
                  'Linux': [u'Linux成长之路', u'Linux运维实战', 'CentOS', 'Ubuntu'],
@@ -44,11 +45,10 @@ class User(UserMixin, db.Model):
                     self.email.encode('utf-8')).hexdigest()
 
     def gravatar(self, size=40, default='identicon', rating='g'):
-        # if request.is_secure:
-        #     url = 'https://secure.gravatar.com/avatar'
-        # else:
-        #     url = 'http://www.gravatar.com/avatar'
-        url = 'http://gravatar.duoshuo.com/avatar'
+        if request.is_secure:
+            url = 'https://secure.gravatar.com/avatar'
+        else:
+            url = 'http://www.gravatar.com/avatar'
         hash = self.avatar_hash or hashlib.md5(
             self.email.encode('utf-8')).hexdigest()
         return '{url}/{hash}?s={size}&d={default}&r={rating}'.format(

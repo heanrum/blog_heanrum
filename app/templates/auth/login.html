@@ -1,54 +1,51 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <title>登陆Blog_mini管理后台</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/common.css') }}" rel="stylesheet">
-</head>
-<body background="{{ url_for('static', filename='images/background.jpg') }}">
-<div class="container login-page">
-    <div class="row">
-        <div class="col-md-4 col-lg-offset-4">
-            {% for category, message in get_flashed_messages(with_categories=true) %}
+<html lang="en" class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Heanrum后台登录</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="csrf-token" content="{{ csrf_token() }}"/>
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login/reset.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login/supersized.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login/style.css') }}">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+	<body background="{{ url_for('static', filename='images/background.jpg') }}">
+
+        <div class="page-container">
+        	{% for category, message in get_flashed_messages(with_categories=true) %}
                 <div class="alert alert-{{ category }} alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     {{ message }}
                 </div>
             {% endfor %}
-            <h3 class="text-center">欢迎登陆Blog_mini管理后台</h3>
+            <h1>Login</h1>
             <form class="form-horizontal" role="form" method="post" action="{{ url_for('auth.login') }}">
-                {{ form.csrf_token }}
-                <div class="form-group">
-                    {{ form.email.label(class='col-sm-3 control-label') }}
-                    <div class="col-sm-9">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            {{ form.email(class='form-control', placeholder='请输入您的电子邮件', required='') }}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form.password.label(class='col-sm-3 control-label') }}
-                    <div class="col-sm-9">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            {{ form.password(class='form-control', placeholder='请输入您的密码', required='') }}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-default">登录</button>
-                    </div>
-                </div>
+            	{{ form.csrf_token }}
+                {{ form.email(class='form-control', placeholder='请输入您的电子邮件', required='') }}
+                {{ form.password(class='form-control', placeholder='请输入您的密码', required='') }}
+                <button type="submit" class="btn btn-default">登录</button>
+                <div class="error"><span>+</span></div>
             </form>
         </div>
-    </div>
-</div>
 
-<script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-</body>
+        <!-- Javascript -->
+        <script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    </body>
+
 </html>
+

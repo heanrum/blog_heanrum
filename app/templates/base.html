@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <link   type="image/x-icon"   href="{{url_for('static', filename='images/head.ico')}}"  rel="shortcut icon">
     <title>
         {% block title %}
         {{ BlogInfo.query.first().title }}
@@ -137,9 +138,8 @@
 {% endblock %}
 <div class="footer">
     <p class="footer-content">
-        @2016
-        <a href="#">Blog_mini</a>
-        -开源博客系统
+        @2018
+        <a href="#">heanrum</a>
         {% if not current_user.is_authenticated %}
             -<a href="{{ url_for('auth.login') }}">
             <span class="glyphicon glyphicon-wrench">后台管理</span>
