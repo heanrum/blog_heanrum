@@ -177,10 +177,9 @@ li.issue-item a{
     list-style: none;
 }
 .issue-list .issue-item .time {
-    font-size: .8rem;
+    font-size: 100%;
     color: #999;
     cursor: default;
-    flex: 0 0 7rem;
     text-align: right;
 }
 .fl {
@@ -278,14 +277,113 @@ a {
 }
 .issue-list .issue-item {
     flex: 0 0 69px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1.5px solid #d5cece;
     display: flex;
     align-items: center;
     padding: 0 70px;
 }
+.comment .issue-item {
+    flex: 0 0 69px;
+    border-bottom: 1.5px solid #d5cece;
+    display: flex;
+    align-items: center;
+    padding: 0 70px;
+}
+.comment .issue-item a {
+    font-size: 22px;
+    color: #4b595f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.comment .issue-item ul .tag-small {
+    line-height: 24px;
+    height: 24px;
+    padding: 0 12px;
+    font-size: 12px;
+}
+.comment .issue-item .tag{
+
+}
+.article-body {
+    padding: 15px;
+    font-size: 14px;
+}
 .app {
     display: flex;
     height: 100%;
+}
+.title-container {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    background-color: #f9fafc;
+    padding: 0 .8rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.title-container .title {
+    font-size: 22px;
+    color: #4b595f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.title-container ul {
+    list-style: none;
+    display: flex;
+    flex: 1 0 auto;
+    margin: 0 .5rem;
+}
+.title-container .back {
+    flex: 0 0 65px;
+    font-size: 14px;
+    color: #4b595f;
+    cursor: pointer;
+}
+.comment-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 .8rem;
+}
+.comment {
+    margin-top: 30px;
+    border-radius: 4px;
+    border: 2px solid #efecec;
+}
+.comment-title {
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #eee;
+    padding: 0 30px;
+}
+.comment .title-container {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    background-color: #eae4e480;
+    padding: 0 .8rem;
+    border-top: 1.5px solid #d2cbcb;
+    border-bottom: 1px solid #eee;
+    height: 60px;
+}
+.comment-title div img {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-top: 9px;
+    border-radius: 15px;
+    margin-right: 12px;
+}
+.comment-title div {
+    cursor: pointer;
+    float: left;
+}
+.comment-title .time {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #849aa4;
 }
 * {
     padding: 0;
