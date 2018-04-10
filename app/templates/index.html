@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 {% import "_macros.html" as macros %}
 
+
+
 {% block content %}
+	<div class='blog-list-container'>
+	<div class='table-header'>
+        <span>文章标题</span>
+        <span>发表时间</span>
+    </div>
+    <ul class='issue-list'>
     {% include "_article_entry.html" %}
+    </ul>
     <div class="pagination">
     {% if endpoint == '.index' %}
         {{ macros.pagination_widget(pagination, endpoint) }}
@@ -10,4 +19,6 @@
         {{ macros.pagination_widget(pagination, endpoint, id=id) }}
     {% endif %}
     </div>
+    </div>
 {% endblock %}
+
