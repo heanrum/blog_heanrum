@@ -18,20 +18,21 @@ tinymce.init({
     height:400,
     plugins: [
             'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-            'searchreplace wordcount visualblocks visualchars code codesample fullscreen insertdatetime media nonbreaking',
-            'save table contextmenu directionality emoticons template paste textcolor',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'save table contextmenu directionality emoticons template paste textcolor imageupload',
             'codesample',
     ],
-     toolbar: 'insertfile undo redo  | \
-     codesample | \
-     styleselect | \
-     bold italic | \
-     alignleft aligncenter alignright alignjustify | \
-     bullist numlist outdent indent | \
-     link image | \
-     print preview media fullpage | \
-     forecolor backcolor emoticons |\
-     codesample fontsizeselect fullscreen',
+    imageupload_url: '../images/upload/', //图片上传地址
+    convert_urls: false,
+    toolbar: 'insertfile undo redo cut | \
+    styleselect | \
+    bold italic | \
+    alignleft aligncenter alignright alignjustify | \
+    bullist numlist outdent indent | \
+    link image | \
+    preview media fullpage | \
+    forecolor backcolor |\
+    codesample fontsizeselect fullscreen imageupload',
     fontsize_formats: '10pt 12pt 14pt 18pt 24pt 36pt',
     nonbreaking_force_tab: true
 });

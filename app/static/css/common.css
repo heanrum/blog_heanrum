@@ -82,14 +82,12 @@ ul.comments li.comment {
     padding: 8px;
     border-bottom: 1px solid #e0e0e0;
 }
-div.comment-thumbnail {
-    position: absolute;
-}
-.profile-thumbnail {
-    position: absolute;
+.comment-portait {
+    float: left;
+    margin-right: 10px;
 }
 ul.comments div.comment-info {
-    margin-left: 48px;
+    margin-left: 12px;
     min-height: 48px;
 }
 ul.comments li.comment:hover {
@@ -98,6 +96,7 @@ ul.comments li.comment:hover {
 ul.comments .comment-date {
     float: right;
     color: #8c8c8c;
+    margin-right: 7.5%;
 }
 ul.comments .comment-author {
     font-weight: bold;
