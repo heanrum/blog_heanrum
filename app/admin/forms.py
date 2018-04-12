@@ -5,11 +5,7 @@ from wtforms import SelectField, StringField, TextAreaField, SubmitField, \
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from ..main.forms import CommentForm
 
-class FilterForm(Form):
-    def __init__(self, csrf_enabled=False, *args, **kwargs):
-        super(FilterForm, self).__init__(csrf_enabled=csrf_enabled, *args, **kwargs)
-
-class CommonForm(FilterForm):
+class CommonForm(Form):
     types = SelectField(u'博文分类', coerce=int, validators=[DataRequired()])
     source = SelectField(u'博文来源', coerce=int, validators=[DataRequired()])
 
