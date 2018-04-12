@@ -26,7 +26,6 @@ tinymce.init({
             'save table contextmenu directionality emoticons template paste textcolor imageupload',
             'codesample',
     ],
-
     imageupload_url: curWwwPath.substring(0,pos)+'/admin/upload_image', //图片上传地址
     convert_urls: false,
     toolbar: 'insertfile undo redo cut | \
@@ -38,7 +37,7 @@ tinymce.init({
     preview media fullpage | \
     forecolor backcolor |\
     codesample fontsizeselect fullscreen imageupload',
-    fontsize_formats: '10pt 12pt 14pt 18pt 24pt 36pt',
+    fontsize_formats: '10pt 11pt 12pt 14pt 18pt 24pt 36pt',
     nonbreaking_force_tab: true
 });
 
