@@ -1,4 +1,8 @@
 //For submit articles
+    var curWwwPath=window.document.location.href;
+    //获取主机地址之后的目录如：/Tmall/index.jsp
+    var pathName=window.document.location.pathname;
+    var pos=curWwwPath.indexOf(pathName);
 tinymce.init({
     selector:'#content',
     codesample_languages: [
@@ -22,7 +26,8 @@ tinymce.init({
             'save table contextmenu directionality emoticons template paste textcolor imageupload',
             'codesample',
     ],
-    imageupload_url: '../images/upload/', //图片上传地址
+
+    imageupload_url: curWwwPath.substring(0,pos)+'/admin/upload_image', //图片上传地址
     convert_urls: false,
     toolbar: 'insertfile undo redo cut | \
     styleselect | \

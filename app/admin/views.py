@@ -5,6 +5,8 @@ sys.setdefaultencoding('utf-8')
 
 from datetime import datetime
 import json
+import os
+from werkzeug.utils import secure_filename
 from flask import render_template, redirect, flash, \
     url_for, request, current_app, jsonify
 from flask.ext.login import login_required, current_user
@@ -22,6 +24,24 @@ from .. import db
 @login_required
 def manager():
     return redirect(url_for('admin.custom_blog_info'))
+
+@admin.route('/upload_image', methods=['post'])
+@login_required
+def uploadImage():
+    s = {}
+    f = request.files['file']
+    basepath = os.path.dirname(__file__)  # 当前文件所在路径
+    basepath = os.path.dirname(basepath)
+    upload_path = os.path.join(basepath, 'static/images/upload', secure_filename(f.filename))
+    #return upload_path
+    try:
+        f.save(upload_path)
+    except Exception:
+        return Exception
+    s = {}
+    s['error'] = False
+    s['url'] = url_for('static', filename=('images/upload/'+secure_filename(f.filename)))
+    return jsonify(s)
 
 
 @admin.route('/submit-articles', methods=['GET', 'POST'])
