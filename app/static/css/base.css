@@ -159,6 +159,7 @@
 .table-header :last-child {
     flex: 0 0 7rem;
     text-align: right;
+    margin-left: 10%;
 }
 .issue-list {
     flex-grow: 1;
@@ -183,6 +184,13 @@ li.issue-item a{
     flex: 1 0 auto;
     margin: 0 30px;
     list-style: none;
+}
+.issue-list .issue-item .num_of_view {
+    font-size: 100%;
+    color: #999;
+    cursor: default;
+    text-align: center;
+    margin-right: 10%;
 }
 .issue-list .issue-item .time {
     font-size: 100%;

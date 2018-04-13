@@ -7,9 +7,10 @@
         </li>
         </a>
     </ul>
+    <span class='num_of_view'>{{ article.num_of_view }}</span>
     <span class='time'>{{ moment(article.create_time.date()).format('LL') }}</span>
     <div class="main-info" hidden="true">
-        <span class="label label-primary">浏览 {{ article.num_of_view }}</span>
+        <span class="label label-primary">浏览 </span>
         <span class="label label-success">评论 {{ article.comments.count() }}</span>
     </div>
     <div class="article-entry-sum" hidden="ture">
