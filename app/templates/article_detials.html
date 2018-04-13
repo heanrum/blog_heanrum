@@ -2,7 +2,7 @@
 {% import '_macros.html' as macros %}
 
 {% block title %}
-    Blog_Heanrum -{{ article.title }}
+    {{ BlogInfo.query.first().title }}-{{ article.title }}
 {% endblock %}
 
 
