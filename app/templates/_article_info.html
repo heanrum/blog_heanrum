@@ -8,6 +8,7 @@
         </a>
     </ul>
     <span class='num_of_view'>{{ article.num_of_view }}</span>
+    <span class='num_of_comment'>{{ article.comments.count() }}</span>
     <span class='time'>{{ moment(article.create_time.date()).format('LL') }}</span>
     <div class="main-info" hidden="true">
         <span class="label label-primary">浏览 </span>
