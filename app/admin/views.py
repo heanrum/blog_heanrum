@@ -66,7 +66,7 @@ def submitArticles():
 
         if source and articleType:
             article = Article(title=title, content=content, summary=summary,
-                              source=source, articleType=articleType)
+                              source=source, articleType=articleType, is_hidden=0)
             db.session.add(article)
             db.session.commit()
             flash(u'发表博文成功！', 'success')

@@ -165,10 +165,7 @@ class ArticleType(db.Model):
 
     @property
     def is_hide(self):
-        if self.setting:
-            return self.setting.hide
-        else:
-            return False
+        return 0
     # if the articleType does not have setting,
     # its is_hie and is_protected property will be False.
 
@@ -309,7 +306,7 @@ class Article(db.Model):
     articleType_id = db.Column(db.Integer, db.ForeignKey('articleTypes.id'))
     source_id = db.Column(db.Integer, db.ForeignKey('sources.id'))
     comments = db.relationship('Comment', backref='article', lazy='dynamic')
-
+    is_hidden = db.Column(db.Integer)
     @staticmethod
     def generate_fake(count=100):
         from sqlalchemy.exc import IntegrityError
